@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:number_trivia/features/number_trivia/domain/entities/number_trivia.dart';
 
@@ -9,4 +10,11 @@ class NumberTriviaModel extends NumberTrivia {
           number: number,
           text: text,
         );
+
+  factory NumberTriviaModel.fromJson(Map<String, dynamic> json) {
+    return NumberTriviaModel(
+      text: json['text'],
+      number: (json['number'] as num).toInt(),
+    );
+  }
 }
